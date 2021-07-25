@@ -61,6 +61,15 @@ where
 select * from employee_payroll;  
 
 
+#Uc9
+alter table employee_payroll 
+add basic_pay int, 
+add deductions int,
+add taxable_pay int  ,
+add tax int,
+add net_pay int;
+
+
 
 
 
