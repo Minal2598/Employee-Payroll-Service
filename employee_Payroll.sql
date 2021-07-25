@@ -46,7 +46,19 @@ select avg(salary) from employee_payroll;
 select sum(salary) from employee_payroll where gender = 'F' group by gender;
 
 
+#Uc8
+alter table employee_payroll 
+add phone varchar(20), 
+add address varchar(200) default 'address1' ,
+add department varchar(20)  not null ;
 
+update employee_payroll 
+set 
+	department='Finance' 
+where
+	name in ('Mina','Kalpesh');
+
+select * from employee_payroll;  
 
 
 
