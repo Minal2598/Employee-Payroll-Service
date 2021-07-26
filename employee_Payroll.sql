@@ -69,8 +69,40 @@ add taxable_pay int  ,
 add tax int,
 add net_pay int;
 
+#UC10
+create table employee_payroll(
+	id int unsigned not null auto_increment,
+	name varchar (150) not null,
+	gender varchar(1),
+    start date not null,
+    phone varchar(20), 
+    address varchar(200) default 'address1',
+    department varchar(20)  not null ,
+    basic_pay int, 
+    deductions int,
+    taxable_pay int  ,
+    tax int,
+    net_pay int,
+  
+    primary key (id)
 
+);
 
+insert into employee_payroll (name,department,gender,basic_pay
+,deductions,taxable_pay,tax,net_pay,start) values
+	('Terissa','Marketing','F',3000000,1000000,
+    2000000,500000,1500000,'2021-07-08');
+    
+insert into employee_payroll (name,department,gender,basic_pay
+,deductions,taxable_pay,tax,net_pay,start) values
+	('Terissa','Sales','F',3000000,
+    0,0,0,0,'2021-06-01');
+    
+    update employee_payroll set phone = '7895632449' where name = 'Terissa';
+
+select * from employee_payroll;
+
+drop table employee_payroll;
 
 
 
