@@ -97,12 +97,42 @@ insert into employee_payroll (name,department,gender,basic_pay
 ,deductions,taxable_pay,tax,net_pay,start) values
 	('Terissa','Sales','F',3000000,
     0,0,0,0,'2021-06-01');
-    
-    update employee_payroll set phone = '7895632449' where name = 'Terissa';
+update employee_payroll set phone = '7895632449' where name = 'Terissa';
 
 select * from employee_payroll;
 
 drop table employee_payroll;
+
+#UC11
+alter table emp_payroll
+drop column department;
+
+create table department(
+	id int auto_increment not null,
+    name varchar(40) not null,
+    primary key (id)
+);
+
+select * from department;
+insert into department(name) values("Sales");
+insert into department(name) values("Merketting");
+
+create table employee_department(
+	employee_id int not null,
+	department_id int not null,
+    foreign key (employee_id) references employee(id),
+    foreign key (department_id) references department(id),
+    primary key (employee_id, department_id)
+);
+
+create table employee(
+	id int not null auto_increment,
+    name varchar (150) not null,
+    salary double not null,
+    start date not null,
+    primary key (id)
+);
+drop table department;
 
 
 
